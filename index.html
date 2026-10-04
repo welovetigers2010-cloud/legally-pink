@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#FFF5F8">
+<title>What? Like it's hard? · 律政俏佳人能量馆</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,600;0,800;0,900;1,800;1,900&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFF5F8; --hot:#FF4E8E; --hot2:#E93A7D; --pink:#FFD3E4; --pink2:#FFE9F2;
+  --ink:#3A1B29; --sub:#8A5B70; --gold:#E8B04B; --white:#fff;
+  --glass:rgba(255,255,255,.72);
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{
+  font-family:'Nunito','Noto Sans SC','PingFang SC',sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.8;padding-bottom:90px;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;
+  background:
+   radial-gradient(circle at 12% 8%, rgba(255,78,142,.10), transparent 30%),
+   radial-gradient(circle at 88% 22%, rgba(232,176,75,.08), transparent 26%),
+   radial-gradient(circle at 22% 78%, rgba(255,78,142,.07), transparent 30%);
+}
+.wrap{max-width:680px;margin:0 auto;padding:0 20px;position:relative;z-index:2}
+
+/* ============ 闪粉 ============ */
+.sparkle{position:fixed;pointer-events:none;z-index:99;font-size:14px;animation:spark .9s ease-out forwards}
+@keyframes spark{
+  0%{transform:translate(0,0) scale(.4) rotate(0);opacity:1}
+  70%{opacity:1}
+  100%{transform:translate(var(--dx),var(--dy)) scale(1.2) rotate(200deg);opacity:0}
+}
+
+/* ============ 顶部 ============ */
+header{padding:calc(env(safe-area-inset-top) + 46px) 0 0;text-align:center}
+.kicker{font-size:11px;letter-spacing:5px;color:var(--hot2);font-weight:900;text-transform:uppercase}
+h1{font-family:'Nunito',sans-serif;font-style:italic;font-weight:900;font-size:clamp(38px,9.6vw,52px);line-height:1.15;margin-top:10px;
+  color:var(--hot2);text-shadow:0 2px 0 #fff,0 4px 14px rgba(255,78,142,.25);letter-spacing:-.5px}
+h1 .zh{display:block;font-family:'Noto Sans SC',sans-serif;font-style:normal;font-weight:900;font-size:clamp(17px,4.4vw,22px);letter-spacing:4px;color:var(--ink);margin-top:12px;text-shadow:none}
+.sub{font-size:12.5px;letter-spacing:2px;color:var(--sub);margin-top:8px}
+.hero-band{height:14px;margin:26px -20px 0;border-radius:999px;
+  background:linear-gradient(90deg,var(--hot),#FF8FB8 35%,var(--gold) 50%,#FF8FB8 65%,var(--hot));
+  opacity:.85;box-shadow:0 2px 10px rgba(255,78,142,.3)}
+
+/* ============ 卡片通用 ============ */
+.card{background:var(--glass);border:1.5px solid #FFDCEA;border-radius:26px;backdrop-filter:blur(8px);
+  box-shadow:0 10px 30px rgba(233,58,125,.10);padding:24px 22px}
+.sec{margin-top:34px}
+.sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:14px}
+.sec-head h2{font-family:'Noto Sans SC',sans-serif;font-size:19px;font-weight:900;letter-spacing:2.5px}
+.sec-head .n{margin-left:auto;font-family:'Nunito',sans-serif;font-weight:900;font-size:12px;color:var(--hot);letter-spacing:1px}
+
+/* ============ 语录卡 ============ */
+.quote-card{position:relative;overflow:hidden;text-align:center;padding:30px 24px 26px}
+.quote-card::before{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(135deg,rgba(255,78,142,.09),rgba(232,176,75,.07))}
+.q-en{position:relative;font-family:'Nunito',sans-serif;font-style:italic;font-weight:900;font-size:clamp(19px,4.8vw,24px);line-height:1.5;color:var(--hot2)}
+.q-zh{position:relative;font-family:'Noto Sans SC',sans-serif;font-size:14.5px;font-weight:500;color:var(--ink);margin-top:12px;letter-spacing:1px;line-height:2}
+.q-mark{position:absolute;top:2px;left:14px;font-family:'Nunito',serif;font-size:70px;font-weight:900;color:var(--pink);opacity:.8;line-height:1}
+#qBtn{margin-top:16px}
+
+/* ============ 今日六件事 ============ */
+.today-bar{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.today-bar .date{font-family:'Nunito',sans-serif;font-weight:900;font-size:13px;letter-spacing:2px;color:var(--sub)}
+.today-bar .track{flex:1;height:12px;background:#FFE4EF;border-radius:999px;overflow:hidden}
+.today-bar .fill{height:100%;width:0;background:linear-gradient(90deg,var(--hot),#FF8FB8);border-radius:999px;transition:width .5s cubic-bezier(.2,.8,.3,1.2)}
+.today-bar .cnt{font-family:'Nunito',sans-serif;font-weight:900;font-size:14px;color:var(--hot2)}
+.tasks{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.task{position:relative;border:1.5px solid #FFDCEA;background:#fff;border-radius:20px;padding:16px 14px;cursor:pointer;transition:all .25s;user-select:none}
+.task:active{transform:scale(.97)}
+.task .ico{font-size:24px;line-height:1}
+.task .t{font-family:'Noto Sans SC',sans-serif;font-weight:900;font-size:14px;margin-top:8px;letter-spacing:1px}
+.task .d{font-family:'Noto Sans SC',sans-serif;font-size:11px;color:var(--sub);margin-top:3px;letter-spacing:.5px;line-height:1.6}
+.task .tick{position:absolute;top:10px;right:12px;width:22px;height:22px;border-radius:50%;border:2px solid #FFB8D2;background:#fff;transition:all .25s;font-size:12px;line-height:19px;text-align:center;color:#fff;font-weight:900}
+.task.done{background:linear-gradient(135deg,#FFEDF4,#FFE0EE);border-color:var(--hot);box-shadow:0 6px 18px rgba(255,78,142,.22)}
+.task.done .tick{background:var(--hot);border-color:var(--hot)}
+.task.done .t{color:var(--hot2)}
+.task.done::after{content:'';position:absolute;inset:0;pointer-events:none;border-radius:20px;background:linear-gradient(135deg,transparent 40%,rgba(255,255,255,.55) 50%,transparent 60%);
+  background-size:250% 100%;animation:sheen .8s ease}
+@keyframes sheen{from{background-position:120% 0}to{background-position:-60% 0}}
+.full-badge{display:none;margin-top:14px;text-align:center;background:linear-gradient(90deg,var(--hot),#FF7FA8);color:#fff;border-radius:999px;
+  padding:10px 18px;font-family:'Noto Sans SC',sans-serif;font-weight:900;font-size:13px;letter-spacing:2px;box-shadow:0 6px 18px rgba(255,78,142,.35)}
+.full-badge.show{display:block;animation:pop .5s cubic-bezier(.2,1.4,.4,1)}
+@keyframes pop{0%{transform:scale(.6);opacity:0}100%{transform:scale(1);opacity:1}}
+
+/* ============ 她的十课 ============ */
+.lesson{border:1.5px solid #FFDCEA;background:#fff;border-radius:20px;margin-bottom:12px;overflow:hidden;transition:all .25s}
+.lesson.done{background:linear-gradient(135deg,#FFEDF4,#FFE7F1);border-color:rgba(255,78,142,.5)}
+.lhead{display:flex;align-items:center;gap:14px;padding:16px 16px;cursor:pointer;user-select:none}
+.lnum{font-family:'Nunito',sans-serif;font-style:italic;font-weight:900;font-size:22px;color:var(--pink);width:34px;text-align:center;transition:color .25s}
+.lesson.done .lnum{color:var(--hot)}
+.ltitle{flex:1}
+.ltitle .zh{font-family:'Noto Sans SC',sans-serif;font-weight:900;font-size:15px;letter-spacing:1.5px}
+.ltitle .en{font-family:'Nunito',sans-serif;font-style:italic;font-weight:800;font-size:11px;color:var(--sub);letter-spacing:1px;margin-top:2px}
+.lcheck{width:30px;height:30px;border-radius:50%;border:2px solid #FFB8D2;font-size:13px;line-height:27px;text-align:center;color:#fff;font-weight:900;transition:all .25s;flex:none}
+.lesson.done .lcheck{background:var(--hot);border-color:var(--hot)}
+.ldesc{display:none;padding:0 18px 16px 64px;font-family:'Noto Sans SC',sans-serif;font-size:12.5px;color:var(--sub);letter-spacing:.8px;line-height:1.9}
+.lesson.open .ldesc{display:block}
+
+/* ============ 钻石墙 ============ */
+.wall{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;padding:22px 10px 8px}
+.gem{position:relative;width:34px;height:34px;transition:transform .3s}
+.gem i{position:absolute;inset:0;display:block;
+  background:linear-gradient(135deg,#F3CADB,#E9D3E0 45%,#D8C8D4 55%,#C9B8C6);
+  clip-path:polygon(50% 0,100% 35%,50% 100%,0 35%);opacity:.35;transition:all .3s}
+.gem.lit i{opacity:1;
+  background:linear-gradient(135deg,#FF9EC5,#FF5F9E 45%,#FF7FB2 55%,#E93A7D);
+  filter:drop-shadow(0 0 8px rgba(255,78,142,.55))}
+.gem.lit{animation:gempop .55s cubic-bezier(.2,1.5,.4,1)}
+@keyframes gempop{0%{transform:scale(.3) rotate(-30deg)}100%{transform:scale(1) rotate(0)}}
+.wall-note{text-align:center;font-family:'Noto Sans SC',sans-serif;font-size:11.5px;color:var(--sub);letter-spacing:2px;margin-top:10px}
+.wall-note b{color:var(--hot2)}
+
+/* ============ streak ============ */
+.streak-row{display:flex;gap:12px;align-items:stretch}
+.streak{flex:1;text-align:center;padding:18px 8px}
+.streak .big{font-family:'Nunito',sans-serif;font-weight:900;font-size:34px;color:var(--hot2);line-height:1.2}
+.streak .big small{font-size:14px;color:var(--sub);font-weight:900;margin-left:2px}
+.streak .lbl{font-family:'Noto Sans SC',sans-serif;font-size:11px;letter-spacing:2px;color:var(--sub);font-weight:700}
+.streak-note{font-family:'Noto Sans SC',sans-serif;font-size:11px;color:var(--sub);text-align:center;margin-top:10px;letter-spacing:1px}
+
+/* ============ 按钮 ============ */
+.btn{border:none;background:var(--hot);color:#fff;font-family:'Noto Sans SC',sans-serif;font-weight:900;font-size:12.5px;letter-spacing:2px;
+  padding:11px 24px;border-radius:999px;cursor:pointer;box-shadow:0 6px 16px rgba(255,78,142,.3);transition:all .2s}
+.btn:active{transform:scale(.95)}
+.btn.ghost{background:#fff;color:var(--hot2);border:1.5px solid #FFB8D2;box-shadow:none}
+.reset{display:block;margin:44px auto 0;border:none;background:none;font-family:'Noto Sans SC',sans-serif;font-size:10.5px;letter-spacing:2px;color:#C9A0B4;cursor:pointer}
+
+/* ============ toast/footer ============ */
+#toast{position:fixed;left:50%;bottom:30px;transform:translate(-50%,14px);z-index:60;background:var(--ink);color:#fff;
+  padding:11px 24px;border-radius:999px;font-family:'Noto Sans SC',sans-serif;font-size:12.5px;letter-spacing:2px;opacity:0;pointer-events:none;transition:all .3s}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+footer{margin-top:70px;text-align:center;font-family:'Noto Sans SC',sans-serif;font-size:11.5px;color:var(--sub);letter-spacing:2px;line-height:2.2}
+footer .fine{display:block;font-size:10px;letter-spacing:1px;opacity:.7;margin-top:8px}
+
+@media (max-width:430px){ .ldesc{padding-left:18px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="kicker">Legally Pink · Energy Club</div>
+    <h1>What? Like it's hard?<span class="zh">什么？这很难吗？</span></h1>
+    <div class="sub">律政俏佳人能量馆 —— 把自己活成褒义词</div>
+    <div class="hero-band"></div>
+  </header>
+
+  <!-- 今日金句 -->
+  <section class="sec">
+    <div class="card quote-card">
+      <div class="q-mark">“</div>
+      <div class="q-en" id="qEn"></div>
+      <div class="q-zh" id="qZh"></div>
+      <button class="btn ghost" id="qBtn">换一句 ✨</button>
+    </div>
+  </section>
+
+  <!-- 今日六件事 -->
+  <section class="sec">
+    <div class="sec-head"><h2>今日六件事</h2><span class="n" id="tPct">0 / 6</span></div>
+    <div class="card">
+      <div class="today-bar">
+        <span class="date" id="todayDate"></span>
+        <div class="track"><div class="fill" id="tFill"></div></div>
+        <span class="cnt" id="tCnt">0/6</span>
+      </div>
+      <div class="tasks" id="tasks"></div>
+      <div class="full-badge" id="fullBadge">✨ 今天满分出街 —— Elle 会为你骄傲 ✨</div>
+    </div>
+  </section>
+
+  <!-- 她的十课 -->
+  <section class="sec">
+    <div class="sec-head"><h2>她的十课</h2><span class="n">ELLE'S TEN RULES</span></div>
+    <div id="lessons"></div>
+  </section>
+
+  <!-- 钻石墙 -->
+  <section class="sec">
+    <div class="card">
+      <div class="wall" id="wall"></div>
+      <div class="wall-note">十课点亮十颗钻石 —— <b id="gemCnt">0 / 10</b></div>
+    </div>
+  </section>
+
+  <!-- streak -->
+  <section class="sec">
+    <div class="streak-row">
+      <div class="card streak"><div class="big" id="stDays">0<small>天</small></div><div class="lbl">满分日连续</div></div>
+      <div class="card streak"><div class="big" id="stTotal">0<small>天</small></div><div class="lbl">累计满分日</div></div>
+      <div class="card streak"><div class="big" id="stLessons">0<small>课</small></div><div class="lbl">已修完的课</div></div>
+    </div>
+    <div class="streak-note">断了一天也没关系 —— 回来打卡，就是 Elle 精神。</div>
+  </section>
+
+  <button class="reset" id="resetBtn">清空所有记录，重新开始</button>
+
+  <footer>
+    休息也是打卡的一部分 —— Elle 也有窝在沙发看剧的日子。<br>
+    <span class="fine">灵感来自电影《律政俏佳人》(2001) · 数据只存在你的设备上</span>
+  </footer>
+</div>
+
+<div id="toast"></div>
+<script>
+const $=s=>document.querySelector(s);
+const V=[
+ {en:"What? Like it's hard?",zh:"什么？——这很难吗？",src:"收到哈佛录取的那天"},
+ {en:"Exercise gives you endorphins. Endorphins make you happy.",zh:"运动产生内啡肽，内啡肽让人快乐。",src:"Elle 的快乐哲学"},
+ {en:"You must always have faith in people. And most importantly, you must always have faith in yourself.",zh:"永远对别人有信心，而最重要的，是永远对自己有信心。",src:"毕业演讲"},
+ {en:"It is with passion, courage of conviction, and strong sense of self that we take our next steps into the world.",zh:"带着热情、信念和强大的自我，走向世界。",src:"毕业演讲"},
+ {en:"Being a blonde is actually a pretty powerful thing.",zh:"金发，其实是一种超能力。",src:"本色出演"},
+];
+const TASKS=[
+ {ico:"💪",t:"动起来",d:"内啡肽！运动 20 分钟"},
+ {ico:"💧",t:"喝够水",d:"8 杯，皮肤会感谢你"},
+ {ico:"📚",t:"读点书",d:"任何书，30 分钟"},
+ {ico:"✨",t:"精致出门",d:"护肤或穿搭，取悦自己"},
+ {ico:"💗",t:"夸夸自己",d:"认真说一句真心赞美"},
+ {ico:"🌙",t:"早睡",d:"美容觉，不容商量"},
+];
+const RULES=[
+ {zh:"接受难过的夜晚",en:"Allow the bad night",d:"电影开场就是被分手。难过一晚是日程的一部分，第二天照样行动。"},
+ {zh:"把不甘变成计划",en:"Turn spite into a plan",d:"别人的“你不配”不算数。写下你要证明的那件事，只写给自己的。"},
+ {zh:"啃一块硬骨头",en:"Chip away at the hard thing",d:"她 LSAT 考了 179。今天完成一件你拖了很久的难事，哪怕只推进一点。"},
+ {zh:"带着本色进场",en:"Enter as yourself",d:"她带着粉色和吉娃娃进了哈佛。到新环境里，做一件“像自己”的事。"},
+ {zh:"坐第一排举手",en:"Front row, hand up",d:"在人群里为自己发声一次：提问、发言、认领任务，都可以。"},
+ {zh:"Bend & Snap",en:"Bend and snap!",d:"名场面。今天大方释放魅力：抬头挺胸，对世界自信一整天。"},
+ {zh:"拉别人一把",en:"Help someone up",d:"她帮 Paulette 要回小狗。真诚地帮一个人，不图回报。"},
+ {zh:"用结果说话",en:"Let results talk",d:"被看轻之后，把一件事做成。不解释，拿成果给所有人看。"},
+ {zh:"穿上粉色战袍",en:"Wear your pink armor",d:"最自信的那套，认真出门。漂亮不是伪装，是武器。"},
+ {zh:"对自己有信心",en:"Faith in yourself",d:"毕业演讲的落点。写下一句你对未来的承诺，签上名字和日期。"},
+];
+const R=n=>"I II III IV V VI VII VIII IX X".split(" ")[n];
+const k=todayKey(); const wd="日一二三四五六"[new Date().getDay()];
+function todayKey(){const d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")}
+let S=JSON.parse(localStorage.getItem("lp_v1")||"null")||{t:{},L:Array(10).fill(false)};
+if(!S.t[k]) S.t[k]=Array(6).fill(false);
+function save(){localStorage.setItem("lp_v1",JSON.stringify(S))}
+function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("show");clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove("show"),1800)}
+function sparkle(x,y,n=14){
+  const chars=["✨","💖","💎","⭐","🌸"];
+  for(let i=0;i<n;i++){
+    const s=document.createElement("span");s.className="sparkle";
+    s.textContent=chars[i%chars.length];
+    s.style.left=x+"px";s.style.top=y+"px";
+    s.style.setProperty("--dx",(Math.random()*160-80)+"px");
+    s.style.setProperty("--dy",(Math.random()*-130-20)+"px");
+    s.style.fontSize=(10+Math.random()*12)+"px";
+    document.body.appendChild(s);setTimeout(()=>s.remove(),950);
+  }
+}
+function anySpark(el,n=14){const r=el.getBoundingClientRect();sparkle(r.left+r.width/2,r.top+r.height/2,n)}
+
+/* ============ 语录 ============ */
+let qi=(new Date().getDate()+new Date().getMonth())%V.length;
+function renderQ(){$("#qEn").textContent="“"+V[qi].en+"”";$("#qZh").textContent=V[qi].zh+" —— "+V[qi].src}
+$("#qBtn").addEventListener("click",()=>{qi=(qi+1)%V.length;renderQ();anySpark($("#qBtn"),10)});
+
+/* ============ 今日六件事 ============ */
+function renderTasks(){
+  const box=$("#tasks");box.innerHTML="";
+  S.t[k].forEach((done,i)=>{
+    const t=TASKS[i],el=document.createElement("div");
+    el.className="task"+(done?" done":"");
+    el.innerHTML=`<span class="tick">${done?"✓":""}</span><div class="ico">${t.ico}</div><div class="t">${t.t}</div><div class="d">${t.d}</div>`;
+    el.addEventListener("click",e=>{
+      S.t[k][i]=!S.t[k][i];save();renderTasks();
+      if(S.t[k][i]){anySpark(el);const n=S.t[k].filter(x=>x).length;
+        toast(n===6?"今天满分出街 ✨":"打上了 · "+n+"/6");
+        if(n===6){sparkle(e.clientX,e.clientY,26)}
+      }else toast("先放一放，随时回来");
+    });
+    box.appendChild(el);
+  });
+  const n=S.t[k].filter(x=>x).length;
+  $("#tPct").textContent=n+" / 6";$("#tCnt").textContent=n+"/6";
+  $("#tFill").style.width=(n/6*100)+"%";
+  $("#fullBadge").classList.toggle("show",n===6);
+  $("#todayDate").textContent=k.slice(5)+" · 周"+wd;
+}
+
+/* ============ 十课 ============ */
+function renderLessons(){
+  const box=$("#lessons");box.innerHTML="";
+  RULES.forEach((r,i)=>{
+    const done=S.L[i],el=document.createElement("div");
+    el.className="lesson"+(done?" done":"");
+    el.innerHTML=`<div class="lhead"><div class="lnum">${R(i)}</div><div class="ltitle"><div class="zh">${r.zh}</div><div class="en">${r.en}</div></div><div class="lcheck">${done?"✓":""}</div></div><div class="ldesc">${r.d}</div>`;
+    const head=el.querySelector(".lhead"),check=el.querySelector(".lcheck");
+    head.addEventListener("click",()=>el.classList.toggle("open"));
+    check.addEventListener("click",e=>{
+      e.stopPropagation();
+      S.L[i]=!S.L[i];save();renderLessons();renderWall();renderStats();
+      if(S.L[i]){sparkle(e.clientX,e.clientY,22);toast("第 "+R(i).trim()+" 课修完 · 又亮一颗 💎");
+        if(S.L.every(x=>x))setTimeout(()=>{sparkle(innerWidth/2,innerHeight*.38,44);toast("十课全修完 —— 你就是自己的 Elle Woods 💖")},700);
+      }else toast("重新打开这一课");
+    });
+    box.appendChild(el);
+  });
+}
+
+/* ============ 钻石墙 ============ */
+function renderWall(){
+  const w=$("#wall");w.innerHTML="";
+  for(let i=0;i<10;i++){
+    const g=document.createElement("div");g.className="gem"+(S.L[i]?" lit":"");
+    g.innerHTML="<i></i>";w.appendChild(g);
+  }
+  $("#gemCnt").textContent=S.L.filter(x=>x).length+" / 10";
+}
+
+/* ============ streak/统计 ============ */
+function fullDays(){return Object.keys(S.t).filter(d=>S.t[d]&&S.t[d].length===6&&S.t[d].every(x=>x)).sort()}
+function renderStats(){
+  const fd=fullDays(),total=fd.length;
+  let streak=0;
+  if(total){
+    const dset=new Set(fd);let cur=new Date();
+    if(!dset.has(k))cur.setDate(cur.getDate()-1);
+    let guard=0;
+    while(guard++<400){
+      const kk=cur.getFullYear()+"-"+String(cur.getMonth()+1).padStart(2,"0")+"-"+String(cur.getDate()).padStart(2,"0");
+      if(dset.has(kk)){streak++;cur.setDate(cur.getDate()-1)}else break;
+    }
+  }
+  $("#stDays").innerHTML=streak+"<small>天</small>";
+  $("#stTotal").innerHTML=total+"<small>天</small>";
+  $("#stLessons").innerHTML=S.L.filter(x=>x).length+"<small>课</small>";
+}
+
+/* ============ 重置 ============ */
+$("#resetBtn").addEventListener("click",()=>{
+  if(!confirm("清空所有打卡与课程记录，翻到崭新的一页？"))return;
+  S={t:{},L:Array(10).fill(false)};S.t[k]=Array(6).fill(false);save();
+  renderTasks();renderLessons();renderWall();renderStats();toast("翻开了新的一页 ✨");
+});
+
+renderQ();renderTasks();renderLessons();renderWall();renderStats();
+</script>
+</body>
+</html>
